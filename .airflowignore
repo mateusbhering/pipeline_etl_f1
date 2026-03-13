@@ -1,0 +1,59 @@
+# .airflowignore - Arquivos que Airflow deve ignorar
+
+# Coloque nesta pasta raiz para que o Airflow não parse estas extensões
+
+# Dados
+
+data/
+logs/
+notebooks/
+
+# Venv e pacotes
+
+.venv/
+venv/
+**pycache**/
+\*.egg-info/
+dist/
+build/
+.pytest_cache/
+
+# Config & IDE
+
+.git/
+.github/
+.vscode/
+.idea/
+.env
+_.pyc
+_.pyo
+_.swp
+_.swo
+\*~
+.DS_Store
+
+# Docs (não são DAGs)
+
+_.md
+_.txt
+\*.rst
+.md/
+
+# SQL e config
+
+_.sql
+config/
+_.yaml
+\*.yml
+
+# Plugins e testes já parseados
+
+plugins/**pycache**/
+tests/
+test\_\*.py
+
+# Arquivos temporários
+
+_.tmp
+_.bak
+\*.log
