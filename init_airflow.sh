@@ -42,7 +42,7 @@ echo ""
 # ============================================================================
 
 echo "🗄️  Inicializando banco de dados do Airflow..."
-airflow db init
+airflow db migrate
 echo "   ✅ Banco de dados inicializado"
 echo ""
 

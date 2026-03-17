@@ -4,8 +4,9 @@ import logging
 import subprocess
 import os
 
-PROJECT_HOME = os.environ.get("PROJECT_HOME", "/Users/mateus/Desktop/pipeline_formula1")
-PYTHON_BIN = os.environ.get("PYTHON_BIN", f"{PROJECT_HOME}/.venv/bin/python")
+# Caminhos dentro do container Docker
+PROJECT_HOME = "/opt/airflow"
+PYTHON_BIN = "python"  # Usa o python do container
 
 logger = logging.getLogger("airflow.task")
 
@@ -28,7 +29,7 @@ def run_script(script_path: str) -> int:
     dag_id="f1_etl_pipeline",
     description="Pipeline ETL Fórmula 1: Extract → Transform → Load",
     start_date=datetime(2026, 3, 12),
-    schedule_interval="0 10 * * 0",
+    schedule="0 10 * * 0",
     catchup=False,
     tags=["f1", "etl", "data", "formula1"],
     default_args={
@@ -82,7 +83,7 @@ def f1_etl_pipeline():
     def pipeline_success():
         logger.info("Pipeline F1 ETL executado com sucesso!")
 
-    extract_start() >> extract_data() >> extract_end() >> transform_start() >> transform_data() >> transform_end() >> load_start() >> load_database() >> load_end() >> pipeline_success()
+    return extract_start() >> extract_data() >> extract_end() >> transform_start() >> transform_data() >> transform_end() >> load_start() >> load_database() >> load_end() >> pipeline_success()
 
 
 f1_etl = f1_etl_pipeline()
