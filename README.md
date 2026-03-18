@@ -1,6 +1,7 @@
 # Pipeline ETL - Fórmula 1
 
 Projeto de pipeline completo que coleta dados públicos de Fórmula 1, organiza tudo direitinho e salva em um banco de dados para análise.
+![Architecture](F1_ETL_EXCALIDRAW.png)
 
 ## O que esse projeto faz?
 
